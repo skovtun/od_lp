@@ -83,8 +83,9 @@ export const ContentWrapperSection = (): JSX.Element => {
     <section className="relative flex flex-col items-center justify-center gap-8 px-16 py-0 h-[558px] w-full overflow-hidden">
       {/* Main heading */}
       <h1 className="relative font-['Lato',Helvetica] font-black text-[#000607] text-[120px] text-center tracking-[0] leading-[144.0px]">
-        Secure. Transparent. <br />
-        Built for trust.
+      Break boundaries. Break boundaries.<br />
+      Trade multiple chains<br />
+      and assets in one place.
       </h1>
 
       {/* Feature cards */}
