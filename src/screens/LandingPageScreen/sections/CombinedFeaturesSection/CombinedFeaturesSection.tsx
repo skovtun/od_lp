@@ -113,9 +113,9 @@ export const CombinedFeaturesSection = (): JSX.Element => {
                 style={{ scale: headerScale, marginTop: "200px" }}
                 className="text-[64px] font-black text-center text-[#000607] leading-tight z-30"
             >
-                Trade multiple chains
-                <br />
-                and assets in one place
+                Break boundaries. Break boundaries.<br />
+                Trade multiple chains<br />
+                and assets in one place.
             </motion.h2>
             <motion.button
                 style={{ opacity: buttonOpacity }}
