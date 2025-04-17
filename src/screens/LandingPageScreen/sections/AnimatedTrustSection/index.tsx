@@ -178,9 +178,8 @@ export const AnimatedTrustSection = (): JSX.Element => {
           style={{ scale: footerHeaderScale, opacity: footerHeaderOpacity }}
         >
           <div className="text-[64px] font-black text-center">
-            Odos brings the power of
-            <br />
-            trading DeFi to everyone.
+            Odos empowers everyone to harness<br />
+            the full potential of DeFi trading.
           </div>
           <motion.button
             className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-[6px] relative z-20"
