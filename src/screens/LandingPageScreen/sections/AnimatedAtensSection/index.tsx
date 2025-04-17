@@ -50,17 +50,27 @@ export const AnimatedAtensSection = (): JSX.Element => {
   return (
     <div
       ref={sectionRef}
-      className="h-[900px] relative flex flex-col items-center overflow-hidden"
+      className="h-[900px] relative flex flex-col items-center justify-center overflow-hidden w-full"
     >
       {/* Header */}
-      <motion.img 
-        src="/i/Athens.png" 
-        alt="Atens" 
-        className="w-full object-cover absolute top-0 left-0" 
+      <motion.img
+        src="/i/Athens.png"
+        alt="Atens"
+        className="w-full object-cover absolute top-0 left-0"
         style={{ opacity: opacity }}
       />
-      <div className="bg-[#FFFFFF99] p-8">
-
+      <div className="bg-[#FFFFFF99] p-8 z-20 flex flex-col items-center gap-8">
+        <div className="text-[64px] font-black text-center">
+          Why trade like it's 2022?
+          <br />
+          Welcome to the new standard of DeFi.
+        </div>
+        <button
+          className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-md relative z-20"
+        >
+          <img className="w-5 h-5" alt="Odos icon" src="/i/Odos.svg" />
+          <span>Launch Odos app</span>
+        </button>
       </div>
     </div>
   );

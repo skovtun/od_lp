@@ -2,10 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ScrollSection } from "../../components/ScrollSection";
 import { NavigationBarSection } from "./sections/NavigationBarSection/NavigationBarSection";
-import { AnimatedTradeSection } from "./sections/AnimatedTradeSection";
-import { AnimatedSecureSection } from "./sections/AnimatedSecureSection";
-import { AnimatedTrustSection } from "./sections/AnimatedTrustSection";
-import { AnimatedAtensSection } from "./sections/AnimatedAtensSection";
+import { CombinedFeaturesSection } from "./sections/CombinedFeaturesSection";
+import Footer from "./sections/footer";
 
 export const LandingPageScreen = (): JSX.Element => {
   return (
@@ -108,17 +106,11 @@ export const LandingPageScreen = (): JSX.Element => {
         </div>
       </ScrollSection>
 
-      {/* Animated Trade Section */}
-      <AnimatedTradeSection />
+      {/* Combined Features Section */}
+      <CombinedFeaturesSection />
 
-      {/* Animated Secure Section */}
-      <AnimatedSecureSection />
-
-      {/* Animated Trust Section */}
-      <AnimatedTrustSection />
-
-      {/* Animated Atens Section */}
-      <AnimatedAtensSection />
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

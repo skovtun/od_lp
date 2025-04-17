@@ -55,12 +55,12 @@ export const AnimatedSecureSection = (): JSX.Element => {
     return (
         <div
             ref={sectionRef}
-            className="min-h-[800px] relative flex flex-col items-center overflow-hidden"
+            className="min-h-[800px] relative flex flex-col items-center overflow-hidden w-full mt-96"
         >
             {/* Header */}
             <motion.h2
                 style={{ scale: headerScale, y: headerY }}
-                className="text-[64px] font-black text-center text-[#000607] leading-tight z-30"
+                className="text-[64px] font-black text-center text-[#000607] leading-tight z-10"
             >
                 Secure. Transparent.
                 <br />

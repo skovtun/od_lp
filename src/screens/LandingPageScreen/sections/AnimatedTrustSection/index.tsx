@@ -1,12 +1,24 @@
 import React, { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+import { motion, useScroll, useTransform, useAnimation, Variants } from "framer-motion";
 
-const coinImages = [
-  "/i/eth coin.png",
-  "/i/crypto coin.png",
-  "/i/avalanche coin.png",
-  "/i/uniswap coin.png",
-];
+const valueVariants: Variants = {
+  initial: { y: 100 },
+  expose: {
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  },
+  shake: {
+    y: [0, -5, 0, -10, 0],
+    transition: {
+      duration: 0.5,
+      repeat: Infinity,
+      repeatType: "reverse" as const
+    }
+  }
+};
 
 export const AnimatedTrustSection = (): JSX.Element => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -44,9 +56,13 @@ export const AnimatedTrustSection = (): JSX.Element => {
         setHasStruck(true);
         setTimeout(() => {
           controls.start("expose");
+          setTimeout(() => {
+            controls.start("shake");
+          }, 500);
         }, 200);
       } else if (value < 0.4) {
         setHasStruck(false);
+        controls.start("initial");
       }
     });
     return () => unsubscribe();
@@ -55,7 +71,7 @@ export const AnimatedTrustSection = (): JSX.Element => {
   return (
     <div
       ref={sectionRef}
-      className="h-[900px] relative flex flex-col items-center overflow-hidden"
+      className="h-[900px] relative flex flex-col items-center overflow-hidden w-full"
     >
       {/* Header */}
       <h2
@@ -74,10 +90,15 @@ export const AnimatedTrustSection = (): JSX.Element => {
 
       <div className="flex w-full justify-center mt-4">
         <div className="text-center flex flex-col items-center mt-[122px]">
-            <div className="flex flex-col items-center justify-center w-[259px] h-[159px]">
+            <motion.div 
+              className="flex flex-col items-center justify-center w-[259px] h-[159px]"
+              variants={valueVariants}
+              initial="initial"
+              animate={controls}
+            >
                 <div className="text-[56px] font-black">3M+</div>
                 <div className="text-[20px] font-semibold">Unique wallets served</div>
-            </div>
+            </motion.div>
             <motion.img 
                 initial={false}
                 src="/i/column.png" 
@@ -87,10 +108,15 @@ export const AnimatedTrustSection = (): JSX.Element => {
             />
         </div>
         <div className="text-center flex flex-col items-center">
-            <div className="flex flex-col items-center justify-center w-[259px] h-[159px]">
+            <motion.div 
+              className="flex flex-col items-center justify-center w-[259px] h-[159px]"
+              variants={valueVariants}
+              initial="initial"
+              animate={controls}
+            >
                 <div className="text-[56px] font-black">$6B+</div>
                 <div className="text-[20px] font-semibold">Trade volume monthly</div>
-            </div>
+            </motion.div>
             <motion.img 
                 initial={false}
                 src="/i/column.png" 
@@ -100,10 +126,15 @@ export const AnimatedTrustSection = (): JSX.Element => {
             />
         </div>
         <div className="text-center flex flex-col items-center mt-[53px]">
-            <div className="flex flex-col items-center justify-center w-[259px] h-[159px]">
+            <motion.div 
+              className="flex flex-col items-center justify-center w-[259px] h-[159px]"
+              variants={valueVariants}
+              initial="initial"
+              animate={controls}
+            >
                 <div className="text-[56px] font-black">900+</div>
                 <div className="text-[20px] font-semibold">Liquidity sources</div>
-            </div>
+            </motion.div>
             <motion.img 
                 initial={false}
                 src="/i/column.png" 
