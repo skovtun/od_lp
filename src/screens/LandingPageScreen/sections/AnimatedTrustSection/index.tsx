@@ -38,17 +38,17 @@ export const AnimatedTrustSection = (): JSX.Element => {
   const column2Y = useTransform(scrollYProgress, [0.3, 0.5], ["0%", "-100px"]);
   const column3Y = useTransform(scrollYProgress, [0.3, 0.5], ["0%", "-100px"]);
 
-  const headerScale = useTransform(scrollYProgress, [0.2, 0.4], [2, 1]);
-  const headerY = useTransform(scrollYProgress, [0.2, 0.4], ["100px", `300px`]);
-  const buttonOpacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
+  const headerScale = useTransform(scrollYProgress, [0.1, 0.3], [2, 1]);
+  const headerY = useTransform(scrollYProgress, [0.1, 0.3], ["100px", `300px`]);
+  const buttonOpacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
 
   const columnTextOpacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
 
-  const opacity = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
-  const footerHeaderScale = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
-  const footerHeaderOpacity = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
-  const footerButtonOpacity = useTransform(scrollYProgress, [0.7, 0.8], [0, 1]);
-  const footerButtonY = useTransform(scrollYProgress, [0.7, 0.8], ["100px", "-50px"]);
+  const opacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const footerHeaderScale = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const footerHeaderOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const footerButtonOpacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1]);
+  const footerButtonY = useTransform(scrollYProgress, [0.6, 0.7], ["100px", "0px"]);
 
   useEffect(() => {
     const updateSize = () => {
