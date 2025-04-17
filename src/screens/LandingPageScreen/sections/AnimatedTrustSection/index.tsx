@@ -44,6 +44,12 @@ export const AnimatedTrustSection = (): JSX.Element => {
 
   const columnTextOpacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
 
+  const opacity = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
+  const footerHeaderScale = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
+  const footerHeaderOpacity = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
+  const footerButtonOpacity = useTransform(scrollYProgress, [0.7, 0.8], [0, 1]);
+  const footerButtonY = useTransform(scrollYProgress, [0.7, 0.8], ["100px", "-50px"]);
+
   useEffect(() => {
     const updateSize = () => {
       setScreenSize({
@@ -77,7 +83,7 @@ export const AnimatedTrustSection = (): JSX.Element => {
   return (
     <div
       ref={sectionRef}
-      className="h-[1200px] relative flex flex-col items-center overflow-hidden w-full"
+      className="h-[2000px] relative flex flex-col items-center overflow-hidden w-full"
     >
       {/* Header */}
       <motion.h2
@@ -104,7 +110,7 @@ export const AnimatedTrustSection = (): JSX.Element => {
             initial="initial"
             animate={controls}
             transition={{ delay: 0.2 }}
-            style={{ opacity: columnTextOpacity }}  
+            style={{ opacity: columnTextOpacity }}
           >
             <div className="text-[56px] font-black">3M+</div>
             <div className="text-[20px] font-semibold">Unique wallets served</div>
@@ -124,7 +130,7 @@ export const AnimatedTrustSection = (): JSX.Element => {
             initial="initial"
             animate={controls}
             transition={{ delay: 0.4 }}
-            style={{ opacity: columnTextOpacity }}  
+            style={{ opacity: columnTextOpacity }}
           >
             <div className="text-[56px] font-black">$6B+</div>
             <div className="text-[20px] font-semibold">Trade volume monthly</div>
@@ -144,7 +150,7 @@ export const AnimatedTrustSection = (): JSX.Element => {
             initial="initial"
             animate={controls}
             transition={{ delay: 0.6 }}
-            style={{ opacity: columnTextOpacity }}  
+            style={{ opacity: columnTextOpacity }}
           >
             <div className="text-[56px] font-black">900+</div>
             <div className="text-[20px] font-semibold">Liquidity sources</div>
@@ -157,6 +163,34 @@ export const AnimatedTrustSection = (): JSX.Element => {
             className="mt-[100px]"
           />
         </div>
+      </div>
+      <div
+        className="h-[900px] flex flex-col items-center justify-center overflow-hidden w-full absolute top-[1100px]"
+      >
+        <motion.img
+          src="/i/footer.png"
+          alt="Atens"
+          className="absolute top-0 left-1/2 -translate-x-1/2 transform rounded-[16px] z-10 max-w-fit object-cover"
+          style={{ opacity: opacity}}
+        />
+        {/* Header */}
+        <motion.div
+          className="bg-[#FFFFFF99] p-8 z-20 flex flex-col items-center gap-8 w-[1312px] relative"
+          style={{ scale: footerHeaderScale, opacity: footerHeaderOpacity }}
+        >
+          <div className="text-[64px] font-black text-center">
+            Odos brings the power of
+            <br />
+            trading DeFi to everyone.
+          </div>
+          <motion.button
+            className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-[6px] relative z-20"
+            style={{ opacity: footerButtonOpacity, y: footerButtonY }}
+          >
+            <img className="w-5 h-5" alt="Odos icon" src="/i/Odos.svg" />
+            <span>Launch Odos app</span>
+          </motion.button>
+        </motion.div>
       </div>
     </div>
   );

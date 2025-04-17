@@ -66,8 +66,8 @@ export const AnimatedAtensSection = (): JSX.Element => {
       <motion.img
         src="/i/footer.png"
         alt="Atens"
-        className="w-full object-cover absolute top-0 left-0 rounded-[16px]"
-        style={{ opacity: opacity }}
+        style={{ opacity: opacity, width: "200%" }}
+        className="object-cover absolute top-0 left-0 rounded-[16px] z-10"
       />
       <motion.div
         className="bg-[#FFFFFF99] p-8 z-20 flex flex-col items-center gap-8 w-[1312px] relative"

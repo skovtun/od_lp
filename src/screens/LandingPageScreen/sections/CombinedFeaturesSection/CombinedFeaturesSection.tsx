@@ -79,13 +79,14 @@ export const CombinedFeaturesSection = (): JSX.Element => {
     }, []);
 
     const lightningX = useTransform(scrollYProgress, [0, 0.2], ["0%", `${screenSize.width / 2 - 150}px`]);
-    const lightningY = useTransform(scrollYProgress, [0, 0.2], ["0%", `500px`]);
+    const lightningY = useTransform(scrollYProgress, [0, 0.2], ["10%", `500px`]);
     const lightningScale = useTransform(scrollYProgress, [0, 0.2], [2, 1]);
 
     const headerScale = useTransform(scrollYProgress, [0, 0.2], [2, 1]);
 
     // Animations for stat
     const buttonOpacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
+    const coinOpacity = useTransform(scrollYProgress, [0.5, 0.9], [1, 0]);
 
     useEffect(() => {
         const unsubscribe = scrollYProgress.on("change", (value) => {
@@ -188,7 +189,11 @@ export const CombinedFeaturesSection = (): JSX.Element => {
                     const image = coinImages[Math.floor(Math.random() * coinImages.length)];
                     const spreadX = Math.random() * screenSize.width - screenSize.width / 2;
                     const launchHeight = screenSize.height * 0.6;
-                    const finalY = -1000 + Math.random() * 4000;
+                    const finalY = -100 + Math.random() * 3000;
+                    const bounceHeight1 = finalY * 0.2;
+                    const bounceHeight2 = finalY * 0.4;
+                    const bounceHeight3 = finalY * 0.6;
+                    const bounceHeight4 = finalY * 0.8;
 
                     return (
                         <motion.img
@@ -202,26 +207,27 @@ export const CombinedFeaturesSection = (): JSX.Element => {
                             }}
                             animate={{
                                 x: spreadX,
-                                y: [-150, -launchHeight, finalY],
+                                y: [-150, -launchHeight, bounceHeight1, bounceHeight2, bounceHeight3, bounceHeight4, finalY],
                                 rotate: Math.random() * 360,
                             }}
                             transition={{
-                                duration: 1.8,
-                                ease: "easeInOut",
-                                times: [0, 0.2, 0.4],
+                                duration: 2.5,
+                                ease: [0.2, 0.8, 0.2, 0.8],
+                                times: [0, 0.2, 0.6, 0.7, 0.8, 0.9, 1],
                             }}
                             className="w-[80px] h-[80px] object-contain absolute z-10"
                             style={{
                                 left: "50%",
                                 top: "800px",
                                 transform: "translateX(-50%)",
+                                opacity: coinOpacity,
                             }}
                         />
                     );
                 })}
             <AnimatedSecureSection />
             <AnimatedTrustSection />
-            <AnimatedAtensSection />
+            {/* <AnimatedAtensSection /> */}
         </div>
     );
 }; 

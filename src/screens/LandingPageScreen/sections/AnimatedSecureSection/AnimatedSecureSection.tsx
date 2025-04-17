@@ -30,14 +30,14 @@ export const AnimatedSecureSection = (): JSX.Element => {
         return () => window.removeEventListener("resize", updateSize);
     }, []);
 
-    const soc2x = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `${screenSize.width / 2 - 300}px`]);
+    const soc2x = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `${screenSize.width / 2 - 340}px`]);
     const soc2y = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `200px`]);
-    const securityX = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `-${screenSize.width / 2 + 50}px`]);
+    const securityX = useTransform(scrollYProgress, [0.2, 0.4], [`${screenSize.width + 180}px`, `${screenSize.width / 2 - 120}px`]);
     const securityY = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `200px`]);
-    const transparentX = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `${screenSize.width / 2 + 140}px`]);
-    const transparentY = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `-${screenSize.height / 2 - 295}px`]); 
-    const teamX = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `-${screenSize.width / 2 - 390}px`]);
-    const teamY = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `-${screenSize.height / 2 - 295}px`]);
+    const transparentX = useTransform(scrollYProgress, [0.2, 0.4], [`${screenSize.width + 180}px`, `${screenSize.width / 2 + 100}px`]);
+    const transparentY = useTransform(scrollYProgress, [0.2, 0.4], ["600px", `200px`]); 
+    const teamX = useTransform(scrollYProgress, [0.2, 0.4], ["100%", `${screenSize.width / 2 + 320}px`]);
+    const teamY = useTransform(scrollYProgress, [0.2, 0.4], ["600px", `200px`]);
 
     useEffect(() => {
         const unsubscribe = scrollYProgress.on("change", (value) => {
@@ -80,7 +80,7 @@ export const AnimatedSecureSection = (): JSX.Element => {
                     x: soc2x,
                     y: soc2y,
                 }}
-                className="w-[196px] h-[220px] bg-[#F5F5F5] border-[#EAEAEA] rounded-[16px] p-6 flex flex-col gap-4 absolute top-0 -left-[90px] z-20 pointer-events-none"
+                className="w-[200px] h-[220px] bg-[#F5F5F5] border-[#EAEAEA] rounded-[16px] p-6 flex flex-col gap-4 absolute top-0 -left-[90px] z-20 pointer-events-none"
             >
                 <div className="text-[20px] font-semibold text-[#000607]">SOC 2 Compliant</div>
                 <div className="text-[16px] text-[#78909C] font-medium">Enterprise-grade data security and operational integrity.</div>
@@ -91,7 +91,7 @@ export const AnimatedSecureSection = (): JSX.Element => {
                     x: securityX,
                     y: securityY,
                 }}
-                className="w-[196px] h-[220px] bg-[#F5F5F5] border-[#EAEAEA] rounded-[16px] p-6 flex flex-col gap-4 absolute top-0 -right-[90px] z-20 pointer-events-none"
+                className="w-[200px] h-[220px] bg-[#F5F5F5] border-[#EAEAEA] rounded-[16px] p-6 flex flex-col gap-4 absolute top-0 -left-[90px] z-20 pointer-events-none"
             >
                 <div className="text-[20px] font-semibold text-[#000607]">Security-First Architecture</div>
                 <div className="text-[16px] text-[#78909C] font-medium">Designed with rigorous smart contract audits and best practices.</div>
@@ -102,7 +102,7 @@ export const AnimatedSecureSection = (): JSX.Element => {
                     x: transparentX,
                     y: transparentY,
                 }}
-                className="w-[196px] h-[220px] bg-[#F5F5F5] border-[#EAEAEA] rounded-[16px] p-6 flex flex-col gap-4 absolute bottom-0 -left-[90px] z-20 pointer-events-none"
+                className="w-[200px] h-[220px] bg-[#F5F5F5] border-[#EAEAEA] rounded-[16px] p-6 flex flex-col gap-4 absolute top-0 -left-[90px] z-20 pointer-events-none"
             >
                 <div className="text-[20px] font-semibold text-[#000607]">Transparent Infrastructure</div>
                 <div className="text-[16px] text-[#78909C] font-medium">No hidden fees. No opaque routing. What you see is what you swap.</div>
@@ -113,7 +113,7 @@ export const AnimatedSecureSection = (): JSX.Element => {
                     x: teamX,
                     y: teamY,
                 }}
-                className="w-[196px] h-[220px] bg-[#F5F5F5] border-[#EAEAEA] rounded-[16px] p-6 flex flex-col gap-4 absolute bottom-0 -right-[90px] z-20 pointer-events-none"
+                className="w-[200px] h-[220px] bg-[#F5F5F5] border-[#EAEAEA] rounded-[16px] p-6 flex flex-col gap-4 absolute top-0 -left-[90px] z-20 pointer-events-none"
             >
                 <div className="text-[20px] font-semibold text-[#000607]">US-Based Team</div>
                 <div className="text-[16px] text-[#78909C] font-medium">Built and supported by a fully U.S.-based engineering and operations team.</div>

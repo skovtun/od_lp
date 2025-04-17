@@ -24,7 +24,7 @@ export const LandingPageScreen = (): JSX.Element => {
               <br />
               so you get more for your crypto, with less gas and no hassle.
             </p>
-            <button className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-md relative z-20">
+            <button className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-[6px] relative z-20">
               <img className="w-5 h-5" alt="Odos icon" src="/i/Odos.svg" />
               <span>Launch Odos app</span>
             </button>
