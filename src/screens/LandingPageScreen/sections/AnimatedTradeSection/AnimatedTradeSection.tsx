@@ -19,7 +19,8 @@ export const AnimatedTradeSection = (): JSX.Element => {
     offset: ["start end", "end start"],
   });
 
-  const headerScale = useTransform(scrollYProgress, [0.3, 0.5], [2, 1]);
+  const headerScale = useTransform(scrollYProgress, [0.2, 0.4], [2, 1]);
+  const buttonOpacity = useTransform(scrollYProgress, [0.5, 0.6], [0, 1]);
 
   const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
 
@@ -35,19 +36,19 @@ export const AnimatedTradeSection = (): JSX.Element => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  const lightningX = useTransform(scrollYProgress, [0.3, 0.5], ["0%", `${screenSize.width / 2 - 100}px`]);
-  const lightningY = useTransform(scrollYProgress, [0.3, 0.5], ["0%", `${screenSize.height - 200}px`]);
-  const lightningScale = useTransform(scrollYProgress, [0.3, 0.5], [2, 1]);
+  const lightningX = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `${screenSize.width / 2 - 150}px`]);
+  const lightningY = useTransform(scrollYProgress, [0.2, 0.4], ["0%", `270px`]);
+  const lightningScale = useTransform(scrollYProgress, [0.2, 0.4], [2, 1]);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (value) => {
-      if (value >= 0.5 && !hasStruck) {
+      if (value >= 0.4 && !hasStruck) {
         setHasStruck(true);
         setTimeout(() => {
           controls.start("expose");
           setScatterCoins(true);
         }, 200);
-      } else if (value < 0.5) {
+      } else if (value < 0.4) {
         setHasStruck(false);
         setScatterCoins(false);
       }
@@ -56,19 +57,26 @@ export const AnimatedTradeSection = (): JSX.Element => {
   }, [scrollYProgress, hasStruck, controls]);
 
   return (
-    <section
+    <div
       ref={sectionRef}
-      className="min-h-screen relative flex flex-col items-center justify-center overflow-hidden bg-white"
+      className="min-h-[800px] relative flex flex-col items-center overflow-hidden"
     >
       {/* Header */}
       <motion.h2
-        style={{ scale: headerScale }}
-        className="text-[64px] font-black text-center text-[#000607] leading-tight z-20"
+        style={{ scale: headerScale, marginTop: "60px" }}
+        className="text-[64px] font-black text-center text-[#000607] leading-tight z-30"
       >
         Trade multiple chains
         <br />
         and assets in one place
       </motion.h2>
+      <motion.button
+        style={{ opacity: buttonOpacity }}
+        className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-md relative z-20 mt-8"
+      >
+        <img className="w-5 h-5" alt="Odos icon" src="/i/Odos.svg" />
+        <span>Launch Odos app</span>
+      </motion.button>
 
       {/* Lightning — same original position + animated motion */}
       {!hasStruck && (
@@ -80,36 +88,62 @@ export const AnimatedTradeSection = (): JSX.Element => {
             y: lightningY,
             scale: lightningScale,
           }}
-          className="w-[200px] h-[200px] object-contain absolute top-0 left-0 z-10 pointer-events-none"
-          // 🔒 keep original margin offset
+          className="w-[200px] h-[200px] object-contain absolute top-0 left-0 z-20 pointer-events-none"
           initial={false}
         />
       )}
 
       {/* Odos Coin at bottom */}
       {!scatterCoins && (
-        <motion.img
-          src="/i/odos coin.png"
-          alt="Odos Coin"
-          animate={controls}
-          variants={{
-            expose: {
-              opacity: 0,
-              scale: 2,
-              transition: { duration: 0.3, ease: "easeOut" },
-            },
-          }}
-          className="w-[200px] h-[200px] object-contain absolute bottom-[100px] left-1/2 transform -translate-x-1/2 z-20"
-        />
+        <>
+          <motion.img
+            src="/i/odos coin.png"
+            alt="Odos Coin"
+            animate={controls}
+            variants={{
+              expose: {
+                opacity: 0,
+                scale: 2,
+                transition: { duration: 0.3, ease: "easeOut" },
+              },
+            }}
+            style={{
+              top: "350px",
+              left: "50%",
+              transform: "translateX(-50%)",
+            }}
+            className="w-[200px] h-[200px] object-contain absolute z-10"
+          />
+        </>
       )}
+
+      <motion.img
+        src="/i/blow.png"
+        alt="Blow Effect"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={controls}
+        variants={{
+          expose: {
+            opacity: [0, 1, 0],
+            scale: [0, 1.5, 2],
+            transition: { duration: 1, ease: "easeOut" },
+          },
+        }}
+        style={{
+          top: "300px",
+          left: "calc(50% - 100px)",
+          transform: "translate(-50%)",
+        }}
+        className="w-[200px] h-[200px] object-contain absolute z-10"
+      />
 
       {/* Coins: launch from bottom center, fly up, fall and bounce */}
       {scatterCoins &&
-        Array.from({ length: 12 }).map((_, i) => {
+        Array.from({ length: 8 }).map((_, i) => {
           const image = coinImages[Math.floor(Math.random() * coinImages.length)];
           const spreadX = Math.random() * screenSize.width - screenSize.width / 2;
           const launchHeight = screenSize.height * 0.6;
-          const bounce = -30 + Math.random() * 10;
+          const finalY = -100 + Math.random() * 400;
 
           return (
             <motion.img
@@ -117,19 +151,19 @@ export const AnimatedTradeSection = (): JSX.Element => {
               src={image}
               alt={`Coin ${i}`}
               initial={{
-                x: 0,
-                y: 0,
+                x: -40,
+                y: -150,
                 scale: 1,
               }}
               animate={{
                 x: spreadX,
-                y: [0, -launchHeight, bounce, 0],
+                y: [-150, -launchHeight, finalY],
                 rotate: Math.random() * 360,
               }}
               transition={{
                 duration: 1.8,
                 ease: "easeInOut",
-                times: [0, 0.4, 0.8, 1],
+                times: [0, 0.1, 0.4],
               }}
               className="w-[80px] h-[80px] object-contain absolute z-20"
               style={{
@@ -140,6 +174,6 @@ export const AnimatedTradeSection = (): JSX.Element => {
             />
           );
         })}
-    </section>
+    </div>
   );
 };

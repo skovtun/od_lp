@@ -3,17 +3,20 @@ import { motion } from "framer-motion";
 import { ScrollSection } from "../../components/ScrollSection";
 import { NavigationBarSection } from "./sections/NavigationBarSection/NavigationBarSection";
 import { AnimatedTradeSection } from "./sections/AnimatedTradeSection";
+import { AnimatedSecureSection } from "./sections/AnimatedSecureSection";
+import { AnimatedTrustSection } from "./sections/AnimatedTrustSection";
+import { AnimatedAtensSection } from "./sections/AnimatedAtensSection";
 
 export const LandingPageScreen = (): JSX.Element => {
   return (
-    <div className="relative">
+    <div className="relative font-lato bg-[#fcfcfc]">
       <NavigationBarSection />
-      
+
       {/* Hero Section */}
-      <ScrollSection className="bg-[#fcfcfc]">
+      <ScrollSection>
         <div className="container mx-auto px-4 mb-32 relative z-20">
           <div className="flex flex-col items-start max-w-[644px]">
-            <h1 className="text-[64px] font-black text-[#000607] leading-[1.2] mb-6">
+            <h1 className="text-[64px] font-black text-[#000607] leading-[1.2] mb-6 font-lato">
               Built Like a God.
               <br />
               Engineered for DeFi.
@@ -31,16 +34,18 @@ export const LandingPageScreen = (): JSX.Element => {
         </div>
 
         {/* Background Elements */}
-        <div className="absolute right-0 top-0 h-full w-1/2 z-0">
-          <img
-            src="/i/odos man.png"
-            alt="Odos statue"
-            className="h-full w-full object-contain object-right"
-          />
+        <div className="absolute right-0 top-[20px] h-full w-1/2 z-0">
+          <div className="relative h-full w-full">
+            <img
+              src="/i/odos man.png"
+              alt="Odos statue"
+              className="h-4/5 w-4/5 object-contain object-right absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+            />
+          </div>
         </div>
 
         {/* Animated Clouds */}
-        <div className="absolute bottom-0 left-0 right-0 w-full z-10">
+        <div className="absolute -bottom-10 left-0 right-0 w-full z-10">
           <div className="relative h-[450px] overflow-hidden">
             {/* First cloud - starting 50% visible from left */}
             <motion.div
@@ -60,7 +65,7 @@ export const LandingPageScreen = (): JSX.Element => {
                 className="w-full h-full object-contain"
               />
             </motion.div>
-            
+
             {/* Second cloud - starting fully visible from right */}
             <motion.div
               className="absolute bottom-0 w-full h-full"
@@ -83,7 +88,7 @@ export const LandingPageScreen = (): JSX.Element => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center z-20">
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center z-20">
           <p className="text-sm text-[#000607] mb-4">
             Scroll to see what Odos is and why you need it
           </p>
@@ -105,6 +110,15 @@ export const LandingPageScreen = (): JSX.Element => {
 
       {/* Animated Trade Section */}
       <AnimatedTradeSection />
+
+      {/* Animated Secure Section */}
+      <AnimatedSecureSection />
+
+      {/* Animated Trust Section */}
+      <AnimatedTrustSection />
+
+      {/* Animated Atens Section */}
+      <AnimatedAtensSection />
     </div>
   );
 };

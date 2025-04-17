@@ -7,20 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: "var(--body-font-family)",
-        "body-bold": "var(--body-bold-font-family)",
-        "extra-large": "var(--extra-large-font-family)",
-        "extra-small": "var(--extra-small-font-family)",
-        small: "var(--small-font-family)",
-        sans: [
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
-          '"Apple Color Emoji"',
-          '"Segoe UI Emoji"',
-          '"Segoe UI Symbol"',
-          '"Noto Color Emoji"',
-        ],
+        lato: ["Lato", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

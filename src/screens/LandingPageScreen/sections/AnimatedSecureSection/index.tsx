@@ -1,0 +1,1 @@
+export { AnimatedSecureSection } from "./AnimatedSecureSection";
