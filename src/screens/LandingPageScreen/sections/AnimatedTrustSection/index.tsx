@@ -90,9 +90,8 @@ export const AnimatedTrustSection = (): JSX.Element => {
         style={{ scale: headerScale, y: headerY }}
         className="text-[64px] font-black text-center text-[#000607] leading-tight z-10"
       >
-        Trusted by millions
-        <br />
-        of traders like you.
+        Trusted by millions of traders —<br />
+        united by power, trust, and Odos.
       </motion.h2>
       <motion.button
         style={{ opacity: buttonOpacity }}
