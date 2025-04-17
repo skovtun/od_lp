@@ -79,7 +79,7 @@ export const CombinedFeaturesSection = (): JSX.Element => {
     }, []);
 
     const lightningX = useTransform(scrollYProgress, [0, 0.2], ["0%", `${screenSize.width / 2 - 150}px`]);
-    const lightningY = useTransform(scrollYProgress, [0, 0.2], ["0%", `270px`]);
+    const lightningY = useTransform(scrollYProgress, [0, 0.2], ["0%", `500px`]);
     const lightningScale = useTransform(scrollYProgress, [0, 0.2], [2, 1]);
 
     const headerScale = useTransform(scrollYProgress, [0, 0.2], [2, 1]);
@@ -109,7 +109,7 @@ export const CombinedFeaturesSection = (): JSX.Element => {
             className="min-h-[2000px] relative flex flex-col items-center overflow-hidden bg-[#fcfcfc]"
         >
             <motion.h2
-                style={{ scale: headerScale, marginTop: "60px" }}
+                style={{ scale: headerScale, marginTop: "200px" }}
                 className="text-[64px] font-black text-center text-[#000607] leading-tight z-30"
             >
                 Trade multiple chains
@@ -118,7 +118,7 @@ export const CombinedFeaturesSection = (): JSX.Element => {
             </motion.h2>
             <motion.button
                 style={{ opacity: buttonOpacity }}
-                className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-md relative z-20 mt-8"
+                className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-[6px] relative z-20 mt-8"
             >
                 <img className="w-5 h-5" alt="Odos icon" src="/i/Odos.svg" />
                 <span>Launch Odos app</span>
@@ -154,7 +154,7 @@ export const CombinedFeaturesSection = (): JSX.Element => {
                             },
                         }}
                         style={{
-                            top: "350px",
+                            top: "600px",
                             left: "50%",
                             transform: "translateX(-50%)",
                         }}
@@ -176,7 +176,7 @@ export const CombinedFeaturesSection = (): JSX.Element => {
                     },
                 }}
                 style={{
-                    top: "300px",
+                    top: "600px",
                     left: "calc(50% - 100px)",
                     transform: "translate(-50%)",
                 }}
@@ -213,7 +213,7 @@ export const CombinedFeaturesSection = (): JSX.Element => {
                             className="w-[80px] h-[80px] object-contain absolute z-10"
                             style={{
                                 left: "50%",
-                                top: "600px",
+                                top: "800px",
                                 transform: "translateX(-50%)",
                             }}
                         />

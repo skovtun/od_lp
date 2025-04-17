@@ -51,7 +51,7 @@ export const NavigationBarSection = (): JSX.Element => {
         </div>
 
         {/* Launch Odos button */}
-        <Button size="sm">
+        <Button size="sm" className="bg-[#f57d0f] text-white rounded-[6px]">
           <img className="w-5 h-5" alt="Odos icon" src="/i/Odos.svg" />
           Launch Odos
         </Button>

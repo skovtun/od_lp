@@ -12,6 +12,7 @@ export const AnimatedAtensSection = (): JSX.Element => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [hasStruck, setHasStruck] = useState(false);
   const controls = useAnimation();
+  const buttonControls = useAnimation();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -39,13 +40,22 @@ export const AnimatedAtensSection = (): JSX.Element => {
         setHasStruck(true);
         setTimeout(() => {
           controls.start("expose");
+          buttonControls.start({
+            y: 0,
+            opacity: 1,
+            transition: { duration: 0.5, delay: 0.3 }
+          });
         }, 200);
       } else if (value < 0.4) {
         setHasStruck(false);
+        buttonControls.start({
+          y: 50,
+          opacity: 0
+        });
       }
     });
     return () => unsubscribe();
-  }, [scrollYProgress, hasStruck, controls]);
+  }, [scrollYProgress, hasStruck, controls, buttonControls]);
 
   return (
     <div
@@ -54,24 +64,42 @@ export const AnimatedAtensSection = (): JSX.Element => {
     >
       {/* Header */}
       <motion.img
-        src="/i/Athens.png"
+        src="/i/footer.png"
         alt="Atens"
-        className="w-full object-cover absolute top-0 left-0"
+        className="w-full object-cover absolute top-0 left-0 rounded-[16px]"
         style={{ opacity: opacity }}
       />
-      <div className="bg-[#FFFFFF99] p-8 z-20 flex flex-col items-center gap-8">
+      <motion.div
+        className="bg-[#FFFFFF99] p-8 z-20 flex flex-col items-center gap-8 w-[1312px] relative"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={controls}
+        variants={{
+          expose: {
+            scale: 1,
+            opacity: 1,
+            transition: { duration: 0.5 }
+          }
+        }}
+      >
         <div className="text-[64px] font-black text-center">
-          Why trade like it's 2022?
+          Odos brings the power of
           <br />
-          Welcome to the new standard of DeFi.
+          trading DeFi to everyone.
         </div>
-        <button
-          className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-md relative z-20"
+        <motion.button
+          className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-[6px] relative z-20"
+          initial={{ y: 50, opacity: 0 }}
+          animate={buttonControls}
         >
           <img className="w-5 h-5" alt="Odos icon" src="/i/Odos.svg" />
           <span>Launch Odos app</span>
-        </button>
-      </div>
+        </motion.button>
+        <img
+          src="/i/footer-main.png"
+          alt="Odos statue"
+          className="absolute top-0 right-0 h-full"
+        />
+      </motion.div>
     </div>
   );
 };
