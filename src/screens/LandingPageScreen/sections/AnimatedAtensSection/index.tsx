@@ -82,9 +82,9 @@ export const AnimatedAtensSection = (): JSX.Element => {
         }}
       >
         <div className="text-[64px] font-black text-center">
-          Odos brings the power of
+          Odos empowers everyone to harness
           <br />
-          trading DeFi to everyone.
+          the full potential of DeFi trading.
         </div>
         <motion.button
           className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-[6px] relative z-20"

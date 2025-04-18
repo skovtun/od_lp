@@ -88,9 +88,8 @@ export const AnimatedTrustSection = (): JSX.Element => {
         style={{ scale: headerScale, y: headerY }}
         className="text-[64px] font-black text-center text-[#000607] leading-tight z-10"
       >
-        Trusted by millions
-        <br />
-        of traders like you.
+        Trusted by millions of traders —<br />
+        united by power, trust, and Odos.
       </motion.h2>
       <motion.button
         style={{ opacity: buttonOpacity }}
@@ -168,9 +167,8 @@ export const AnimatedTrustSection = (): JSX.Element => {
           style={{ scale: footerHeaderScale, opacity: footerHeaderOpacity }}
         >
           <div className="text-[64px] font-black text-center">
-            Odos brings the power of
-            <br />
-            trading DeFi to everyone.
+            Odos empowers everyone to harness<br />
+            the full potential of DeFi trading.
           </div>
           <motion.button
             className="flex items-center gap-2 px-6 py-3 bg-[#f57d0f] text-white rounded-[6px] relative z-20"

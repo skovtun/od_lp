@@ -22,9 +22,8 @@ export const StatsSection = (): JSX.Element => {
   return (
     <section className="flex flex-col items-center gap-8 p-16 relative w-full">
       <h2 className="self-stretch mt-[-1.00px] font-['Lato',Helvetica] font-black text-[#000607] text-[64px] text-center tracking-[0] leading-[76.8px]">
-        Trusted by millions
-        <br />
-        of traders like you.
+        Trusted by millions of traders —<br />
+        united by power, trust, and Odos.
       </h2>
 
       <div className="flex justify-center self-stretch w-full items-start gap-6 relative">
