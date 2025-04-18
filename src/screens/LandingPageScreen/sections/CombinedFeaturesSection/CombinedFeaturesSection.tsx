@@ -11,48 +11,6 @@ const coinImages = [
     "/i/uniswap coin.png",
 ];
 
-const featureCards = [
-    {
-        id: 1,
-        title: "SOC 2 Compliant",
-        description: "Enterprise-grade data security and operational integrity.",
-        position: "top-[19px] left-[-34px]",
-    },
-    {
-        id: 2,
-        title: "Transparent Infrastructure",
-        description: "No hidden fees. No opaque routing. What you see is what you swap.",
-        position: "top-[358px] left-[-83px]",
-    },
-    {
-        id: 3,
-        title: "Security-First Architecture",
-        description: "Designed with rigorous smart contract audits and best practices.",
-        position: "top-[43px] left-[1278px]",
-    },
-    {
-        id: 4,
-        title: "US-Based Team",
-        description: "Built and supported by a fully U.S.-based engineering and operations team.",
-        position: "top-[375px] left-[1302px]",
-    },
-];
-
-const statsData = [
-    {
-        value: "3M+",
-        description: "Unique wallets served",
-    },
-    {
-        value: "$6B+",
-        description: "Trade volume monthly",
-    },
-    {
-        value: "900+",
-        description: "Liquidity sources",
-    },
-];
-
 export const CombinedFeaturesSection = (): JSX.Element => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [hasStruck, setHasStruck] = useState(false);
@@ -128,7 +86,7 @@ export const CombinedFeaturesSection = (): JSX.Element => {
             {/* Lightning — same original position + animated motion */}
             {!hasStruck && (
                 <motion.img
-                    src="/i/lightning.png"
+                    src="/i/lightning bolt.png"
                     alt="Lightning"
                     style={{
                         x: lightningX,

@@ -31,18 +31,16 @@ export const AnimatedTrustSection = (): JSX.Element => {
   });
 
   const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
-  const column1Opacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
-  const column2Opacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
-  const column3Opacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
-  const column1Y = useTransform(scrollYProgress, [0.3, 0.5], ["0%", "-100px"]);
-  const column2Y = useTransform(scrollYProgress, [0.3, 0.5], ["0%", "-100px"]);
-  const column3Y = useTransform(scrollYProgress, [0.3, 0.5], ["0%", "-100px"]);
+  const column1Opacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  const column2Opacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  const column3Opacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  const column1Y = useTransform(scrollYProgress, [0.2, 0.4], ["0%", "-100px"]);
+  const column2Y = useTransform(scrollYProgress, [0.2, 0.4], ["0%", "-100px"]);
+  const column3Y = useTransform(scrollYProgress, [0.2, 0.4], ["0%", "-100px"]);
 
   const headerScale = useTransform(scrollYProgress, [0.1, 0.3], [2, 1]);
   const headerY = useTransform(scrollYProgress, [0.1, 0.3], ["100px", `300px`]);
   const buttonOpacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
-
-  const columnTextOpacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
 
   const opacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
   const footerHeaderScale = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
@@ -103,14 +101,11 @@ export const AnimatedTrustSection = (): JSX.Element => {
       </motion.button>
 
       <div className="flex w-full justify-center mt-4">
-        <div className="text-center flex flex-col items-center mt-[122px]">
+        <div className="text-center flex flex-col items-center mt-[202px]">
           <motion.div
             className="flex flex-col items-center justify-center w-[259px] h-[159px]"
-            variants={valueVariants}
             initial="initial"
-            animate={controls}
-            transition={{ delay: 0.2 }}
-            style={{ opacity: columnTextOpacity }}
+            style={{ opacity: column1Opacity, y: column1Y }}
           >
             <div className="text-[56px] font-black">3M+</div>
             <div className="text-[20px] font-semibold">Unique wallets served</div>
@@ -120,17 +115,14 @@ export const AnimatedTrustSection = (): JSX.Element => {
             src="/i/column.png"
             alt="Trust section 1"
             style={{ opacity: column1Opacity, y: column1Y }}
-            className="mt-[100px]"
+            className=""
           />
         </div>
-        <div className="text-center flex flex-col items-center">
+        <div className="text-center flex flex-col items-center mt-[98px]">
           <motion.div
             className="flex flex-col items-center justify-center w-[259px] h-[159px]"
-            variants={valueVariants}
             initial="initial"
-            animate={controls}
-            transition={{ delay: 0.4 }}
-            style={{ opacity: columnTextOpacity }}
+            style={{ opacity: column2Opacity, y: column2Y }}
           >
             <div className="text-[56px] font-black">$6B+</div>
             <div className="text-[20px] font-semibold">Trade volume monthly</div>
@@ -140,17 +132,14 @@ export const AnimatedTrustSection = (): JSX.Element => {
             src="/i/column.png"
             alt="Trust section 1"
             style={{ opacity: column2Opacity, y: column2Y }}
-            className="mt-[100px]"
+            className=""
           />
         </div>
-        <div className="text-center flex flex-col items-center mt-[53px]">
+        <div className="text-center flex flex-col items-center mt-[133px]">
           <motion.div
             className="flex flex-col items-center justify-center w-[259px] h-[159px]"
-            variants={valueVariants}
             initial="initial"
-            animate={controls}
-            transition={{ delay: 0.6 }}
-            style={{ opacity: columnTextOpacity }}
+            style={{ opacity: column3Opacity, y: column3Y }}
           >
             <div className="text-[56px] font-black">900+</div>
             <div className="text-[20px] font-semibold">Liquidity sources</div>
@@ -160,7 +149,7 @@ export const AnimatedTrustSection = (): JSX.Element => {
             src="/i/column.png"
             alt="Trust section 1"
             style={{ opacity: column3Opacity, y: column3Y }}
-            className="mt-[100px]"
+            className=""
           />
         </div>
       </div>
@@ -168,9 +157,9 @@ export const AnimatedTrustSection = (): JSX.Element => {
         className="h-[900px] flex flex-col items-center justify-center overflow-hidden w-full absolute top-[1100px]"
       >
         <motion.img
-          src="/i/footer.png"
+          src="/i/footer image 1.png"
           alt="Atens"
-          className="absolute top-0 left-1/2 -translate-x-1/2 transform rounded-[16px] z-10 max-w-fit object-cover"
+          className="max-w-[115vw] absolute top-0 left-1/2 -translate-x-1/2 transform rounded-[16px] z-10 object-cover"
           style={{ opacity: opacity}}
         />
         {/* Header */}

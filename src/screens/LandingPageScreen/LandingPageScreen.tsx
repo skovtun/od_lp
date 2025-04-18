@@ -7,7 +7,7 @@ import Footer from "./sections/footer";
 
 export const LandingPageScreen = (): JSX.Element => {
   return (
-    <div className="relative font-lato bg-[#fcfcfc]">
+    <div className="relative font-lato bg-[#fcfcfc] overflow-hidden">
       <NavigationBarSection />
 
       {/* Hero Section */}
@@ -39,6 +39,11 @@ export const LandingPageScreen = (): JSX.Element => {
               alt="Odos statue"
               className="h-4/5 w-4/5 object-contain object-right absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
             />
+            <img
+                src="/i/cloud-2.png"
+                alt="Cloud 1"
+                className="absolute z-10 -bottom-5 -right-32"
+              />
           </div>
         </div>
 
